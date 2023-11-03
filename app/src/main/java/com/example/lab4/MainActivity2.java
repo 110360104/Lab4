@@ -54,7 +54,7 @@ public class MainActivity2 extends AppCompatActivity {
             b.putString("drink", drink);
             b.putString("sugar",sugar);
             b.putString("ice",ice_opt);
-            i.putExtra(b);
+            i.putExtras(b);
             setResult(Activity.RESULT_OK,i);
             finish();
         });

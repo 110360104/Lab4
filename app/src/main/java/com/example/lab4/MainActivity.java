@@ -29,7 +29,17 @@ public class MainActivity extends AppCompatActivity {
     }
     private  final ActivityResultLauncher<Intent> mStartForResult =
             registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result ->{
-                
-            }
+                if(result.getResultCode() == Activity.RESULT_OK) {
+                    Intent intent = result.getData();
+
+                    if(intent != null && intent.getExtras() != null){
+                        Bundle b = intent .getExtras();
+                        String str1 = b.getString("drink");
+                        String str2 = b.getString("sugar");
+                        String str3 = b.getString("ice");
+                        tv_meal.setText(String.format("飲料: %s\n\n甜度: %s\n\n冰塊: %s",str1,str2,str3));
+                    }
+                }
+            });
 
 }
